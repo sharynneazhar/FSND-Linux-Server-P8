@@ -9,25 +9,25 @@ IP: 52.35.153.26
 Port: 2200
 
 ### Running the instance:
-###### Launch the VM [[Source]](1)
+##### Launch the VM [[Source]](1)
 1. Create a new development environment through your Udacity account
 2. Download the private key to the SSH folder onto your local machine  
 3. Follow the instructions on the page to launch the remote server
 
-###### Create a new user [[Source]](2)
+##### Create a new user [[Source]](2)
 1. Create the user  `$ adduser grader`
 2. Give the user the permission to sudo
   - Open the sudo configuration file `$ visudo`
   - Find the line that looks like `root ALL=(ALL:ALL) ALL`
   - Add `grader ALL=(ALL:ALL) ALL` in the line below it
 
-###### Update installed packages
+##### Update installed packages
 1. Update the list of packages and available versions  
   `$ sudo apt-get update`
 2. Upgrade all packages with newer versions  
   `$ sudo apt-get upgrade`
 
-###### Change the SSH port from 22 to 2200
+##### Change the SSH port from 22 to 2200
 1. Change the SSH config file  
   - Open the file `$ vim /etc/ssh/sshd_config`
   - Change `Port 22` to `Port 2200`
@@ -37,7 +37,7 @@ Port: 2200
 2. Restart the SSH service  
   `$ sudo service ssh restart`
 
-###### Configure SSH authentication [[Source]](3)
+##### Configure SSH authentication [[Source]](3)
 1. Generate SSH key from local environment  `$ ssh-keygen`
 2. Copy the public key to the server
   - Display and copy the contents of your new public key file  
@@ -52,7 +52,7 @@ Port: 2200
   `$ ssh -v grader@YOUR_PUBLIC_IP -p 2200`
 4. Change `PasswordAuthentication` to `no` in your SSHD config file  
 
-###### Configure the Uncomplicated Firewall (UFW)
+##### Configure the Uncomplicated Firewall (UFW)
 1. Allow connections for SSH port 2200  
   `$ sudo ufw allow 2200/tcp`
 2. Allow connections for HTTP port 80  
@@ -62,12 +62,12 @@ Port: 2200
 4. Enable the UFW  
   `$ sudo ufw enable`
 
-###### Configure the local timezone to UTC [[Source]](4)
+##### Configure the local timezone to UTC [[Source]](4)
 1. Open timezone configuration settings  
   `$ sudo dpkg-reconfigure tzdata`
 2. Choose `None of the Above` and then `UTC` on the next screen
 
-###### Install PostgreSQL and create a new user [[Source]](5)
+##### Install PostgreSQL and create a new user [[Source]](5)
 1. Install PostgreSQL  
   `$ sudo apt-get install postgresql postgresql-contrib`
 2. Remote connections are not allowed by default but check by  
@@ -82,7 +82,7 @@ Port: 2200
 7. Exit out of PostgreSQL `# \q`
 8. Go back to grader user `$ exit`
 
-###### Install and configure Apache2 to serve a Flask app using mod_wsgi [[Source]](6)
+##### Install and configure Apache2 to serve a Flask app using mod_wsgi [[Source]](6)
 1. Install Apache2 `$ sudo apt-get install apache2`
   - You can confirm Apache2 is working by visiting `http://YOUR_PUBLIC_IP` where the Apache2 default page should display
 2. Install mod_wsgi to serve the Flask app  
@@ -164,7 +164,7 @@ Port: 2200
 `$ sudo service apache2 restart`
 10. You can confirm everything is working by visiting `http://YOUR_PUBLIC_IP` where it should display the "Hello World" message
 
-###### Install Git and clone the Catalog App project
+##### Install Git and clone the Catalog App project
 1. Install Git  
   `$ sudo apt-get install git`
 2. Set your name  
@@ -178,7 +178,7 @@ Port: 2200
 6. Make the .git directory not publicly accessible  
   `$ cd /var/www/catalog/ and $ sudo vim .htaccess` and add `RedirectMatch 404 /\.git`
 
-###### Install all the necessary packages and dependencies the Catalog app uses (from the pg_config.sh file)
+##### Install all the necessary packages and dependencies the Catalog app uses (from the pg_config.sh file)
 1. Activate the virtual environment  
   `$ source venv/bin/activate`
 2. Install all the packages  
@@ -191,7 +191,7 @@ Port: 2200
 5. Remove the `__init__.py` file from earlier  
   `$ sudo rm -rf __init__.py`
 
-###### Run the application
+##### Run the application
 1. Setup the application databases
   - `$ sudo python models.py`  
   - `$ sudo python restaurantData.py`
