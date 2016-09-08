@@ -4,7 +4,6 @@ Nanodegree Project: Prepare a Linux VM to host web applications
 ### Project Description
 You will take a baseline installation of Ubuntu Linux on a virtual machine and prepare it to host a Flask web application, This includes installing updates, securing it from a number of attack vectors and installing/configuring web and database servers.
 
-The project is hosted on http://ec2-52-35-153-26.us-west-2.compute.amazonaws.com  
 IP: 52.35.153.26  
 Port: 2200
 
